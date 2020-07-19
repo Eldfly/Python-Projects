@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+      <h1>Welcome {{current_user.gametag}}</h1>
+  </div>
+
+  <div class="container">
+    <h4>Add Tag</h4>
+    <br/>
+    <form method="POST">
+      {{form.hidden_tag()}}
+
+      <div class="form-group">
+        {{form.tag.label}}<br>
+        {{form.tag(class="form-control")}}
+      </div>
+
+      <div class="form-group">
+        Game*<br>
+        {{form.game(class="form-control")}}
+        <ul>
+          {% for error in form.game.errors %}
+          <li style="color:red;">{{error}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="form-group">
+        {{form.server.label}}<br>
+        {{form.server(class="form-control", placeholder="Public/Private/Servername")}}
+      </div>
+
+      <div class="form-group">
+        {{form.create_tag(class="btn btn-outline-info")}}
+      </div>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+.card-img-top {
+    width: 100%;
+    height: 10vw;
+}
+
+.white{
+
+  color: #fff;
+}
+
+.title_game{
+
+  color: #b300b3;
+}
+
+/* unvisited link */
+a:link {
+  color: #b300b3;
+}
+
+/* visited link */
+a:visited {
+    color: none;
+}
+
+/* mouse over link */
+a:hover {
+  color: #b300b3;
+  text-decoration: none;
+}
+
+/* selected link */
+a:active {
+    color: #b300b3;
+}

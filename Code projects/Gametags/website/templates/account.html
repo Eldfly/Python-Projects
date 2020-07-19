@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container mt-5 mb-5">
+      <h1>Welcome {{current_user.username}}</h1>
+  </div>
+  <div class="container">
+    <a class ="btn btn-light btn-lg" href="{{url_for('gametags.create_tag')}}">Create Tag</a>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-3">
+        {% for tags in gametags %}
+        <div class="col mb-4">
+          <div class="card mt-3" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='games/'+tags['game']+'.jpg')}}" class="card-img-top embed-responsive-item img-fluid" alt="Image Game">
+             <div class="card-body">
+               <h5>{{ tags.tag }}</h5>
+               <small>
+                 Server: {{tags.server}}
+               </small>
+             </div>
+             <div class="card-footer">
+               <form action="{{url_for('gametags.delete_tag', tag_id=tags.id)}}" method="POST">
+                 <input type="submit" class="btn btn-danger" value="Delete">
+               </form>
+             </div>
+           </div>
+         </div>
+        {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}
